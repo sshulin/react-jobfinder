@@ -1,0 +1,33 @@
+// 
+// Libs
+//
+@import "./_var";
+
+// Mixins
+@import "./mixins/bootstrap/bootstrap-mixins";
+@import "./mixins/bs4-like-media";
+@import "./mixins/crossbrowser-flex";
+@import "./mixins/container";
+
+// Placeholder selectors
+@import "./blocks/placeholders.scss";
+
+// Vendor libs
+@import "./vendor/_normalize";
+@import "./vendor/_responsive-utilities";
+
+// Fonts
+@import "./fonts";
+
+
+body {
+	// If font is needed
+	// font-family:  "Some font";
+}
+
+// 
+// Blocks
+//
+
+@import "./blocks/header";
+@import "./blocks/footer";
