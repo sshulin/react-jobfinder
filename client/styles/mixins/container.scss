@@ -15,3 +15,7 @@
   	width: 100%;
   }
 }
+
+.container {
+	@include container();
+}
