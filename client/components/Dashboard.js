@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
 		return (
 			<div>
 				<h1>
-					{'App' + ' ' + 'name'}
+					{'Datsu' + '-' + 'sara'}
 				</h1>
 				<div className="vacancies-list">
 					{ this.props.vacancies.map((vacancy, i) => 

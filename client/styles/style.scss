@@ -15,6 +15,7 @@
 // Vendor libs
 @import "./vendor/_normalize";
 @import "./vendor/_responsive-utilities";
+@import "./vendor/font-awesome/font-awesome";
 
 // Fonts
 @import "./fonts";
@@ -31,3 +32,4 @@ body {
 
 @import "./blocks/header";
 @import "./blocks/footer";
+@import "./blocks/vacancy-item";
