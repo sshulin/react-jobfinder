@@ -11,12 +11,14 @@ import store, { history } from './store';
 // Components
 import Root from './containers/Root';
 import Dashboard from './components/Dashboard';
+import VacancyDetails from './components/VacancyDetails';
 
 const router = (
 	<Provider store={store}>
 		<Router history={history}>
 			<Route path="/" component={Root}>
 				<IndexRoute component={Dashboard}></IndexRoute>
+				<Route path="/vacancy/:vacancyId" component={VacancyDetails}></Route>
 			</Route>
 		</Router>
 	</Provider>

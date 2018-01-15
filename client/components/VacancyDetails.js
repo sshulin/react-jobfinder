@@ -1,13 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router';
 
-class VacancyItem extends React.Component {
+class VacancyDetails extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
-		const { vacancy } = this.props;
+		const { vacancyId } = this.props.params;
+
+		const vacancy = this.props.vacancies.find(function(item) {
+			return item.id == vacancyId
+		})
 
 		let salary = '';
 		if(vacancy.salary) {
@@ -27,9 +30,7 @@ class VacancyItem extends React.Component {
 			<div className="vacancy-item">
 				<div className="vacancy-item__header">
 					<div className="vacancy-item__name">
-						<Link to={`/vacancy/${vacancy.id}`}>
-							{ vacancy.name }
-						</Link>
+						{ vacancy.name }
 					</div>
 					<div className="vacancy-item__employer">
 						{ vacancy.employer.name }
@@ -76,4 +77,4 @@ class VacancyItem extends React.Component {
 	}
 }
 
-export default VacancyItem;
+export default VacancyDetails;

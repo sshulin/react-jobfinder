@@ -1,6 +1,8 @@
 .vacancy-item {
+	background-color: white;
 	border-radius: 3px;
 	border: 1px solid #dbdbdb;
+	color: #4a4a4a;
 	font-size: 16px;
 	padding: 15px 20px;
 	margin-bottom: 15px;
@@ -10,8 +12,19 @@
 		margin-bottom: 12px;
 	}
 	&__name {
+		color: #333333;
 		font-size: 24px;
 		font-weight: 600;
+		a, & {
+			color: #333333;
+			text-decoration: none;
+			@include transition(.2s);
+		}
+		a {
+			&:hover {
+				color: #777777;
+			}
+		}
 	}
 	&__employer {
 
