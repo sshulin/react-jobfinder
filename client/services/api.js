@@ -1,9 +1,10 @@
+import queryString from 'query-string';
+
 const API_ROOT = 'https://api.hh.ru/';
 
 function callApi(url, params) {
 	const fullUrl = (url.indexOf(API_ROOT) === -1) ? API_ROOT + url : root;
-
-	return fetch(fullUrl, params)
+	return fetch(fullUrl + '?' + queryString.stringify(params))
 		.then(function(response) {
 			return response.json().then(function(json) {
 				return {
@@ -25,4 +26,4 @@ function callApi(url, params) {
 		)
 }
 
-export const getVacanciesList = params => callApi('vacancies', params);
+export const getVacanciesList = params => callApi('vacancies/', params);

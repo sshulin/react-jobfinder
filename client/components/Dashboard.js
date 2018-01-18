@@ -1,6 +1,7 @@
 import React from 'react';
 
 import VacancyList from './VacancyList';
+import VacancyFilter from './VacancyFilter';
 
 class Dashboard extends React.Component {
 	constructor(props) {
@@ -14,6 +15,7 @@ class Dashboard extends React.Component {
 		const vacanciesLoading = this.props.vacancies.loading;
 		return (
 			<div>
+				<VacancyFilter {...this.props} />
 				{ vacanciesLoading ? (
 					<div className="vacancies-list">
 						<div className="vacancy-item">

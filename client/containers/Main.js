@@ -10,7 +10,7 @@ class Main extends React.Component {
 		return (
 			<div className="container">
 				<h1>
-					<Link to="/">{'Datsu' + '-' + 'sara'}</Link>
+					<Link to="/" title="Go home">{'React jobfinder'}</Link>
 				</h1>
 				{React.cloneElement(this.props.children, this.props)}
 			</div>

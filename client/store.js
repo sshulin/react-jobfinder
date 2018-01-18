@@ -14,7 +14,10 @@ import vacancies from './data/vacancies';
 const defaultState = {
 	vacancies: {
 		items: vacancies,
-		loading: true
+		loading: true,
+		filter: {
+			
+		}
 	},
 }
 
