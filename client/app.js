@@ -1,3 +1,5 @@
+import 'regenerator-runtime/runtime';
+
 import css from './styles/style.scss';
 
 import React from 'react';
@@ -22,8 +24,7 @@ const router = (
 			</Route>
 		</Router>
 	</Provider>
-
-	)
+)
 
 const render = Component => {
 	ReactDOM.render(

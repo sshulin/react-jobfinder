@@ -1,20 +1,30 @@
 import React from 'react';
 
-import VacancyItem from './VacancyItem';
+import VacancyList from './VacancyList';
 
 class Dashboard extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+	componentDidMount() {
+		this.props.fetchVacancies();
+	}
 
 	render() {
+		const vacanciesLoading = this.props.vacancies.loading;
 		return (
 			<div>
-				<div className="vacancies-list">
-					{ this.props.vacancies.map((vacancy, i) => 
-						<VacancyItem {...this.props} key={i} i={i} vacancy={vacancy} />
-					)}
-				</div>
+				{ vacanciesLoading ? (
+					<div className="vacancies-list">
+						<div className="vacancy-item">
+							<div className="vacancy-item__name">
+								Loading
+							</div>
+						</div>
+					</div>
+				) : (
+					<VacancyList {...this.props} />
+				) }
 			</div>
 		)
 	}

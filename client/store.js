@@ -1,21 +1,35 @@
 import { createBrowserHistory } from 'history';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
+import createSagaMiddleware, { END } from 'redux-saga'
+
+import rootSaga, { mySaga } from './sagas/index';
 
 import rootReducer from './reducers/index';
 
 import vacancies from './data/vacancies';
 
 const defaultState = {
-	vacancies: vacancies
+	vacancies: {
+		items: vacancies,
+		loading: true
+	},
 }
+
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
 	rootReducer,
 	defaultState,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+  applyMiddleware(
+    sagaMiddleware
+  ),
+	// window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+sagaMiddleware.run(rootSaga)
 
 export const history = syncHistoryWithStore(browserHistory, store);
 

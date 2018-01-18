@@ -8,7 +8,7 @@ class VacancyDetails extends React.Component {
 	render() {
 		const { vacancyId } = this.props.params;
 
-		const vacancy = this.props.vacancies.find(function(item) {
+		const vacancy = this.props.vacancies.items.find(function(item) {
 			return item.id == vacancyId
 		})
 
