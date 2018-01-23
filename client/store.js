@@ -16,9 +16,12 @@ const defaultState = {
 		items: vacancies,
 		loading: true,
 		filter: {
-			
+			text: ''
 		}
 	},
+	suggests: {
+		vacancy: [],
+	}
 }
 
 const sagaMiddleware = createSagaMiddleware();

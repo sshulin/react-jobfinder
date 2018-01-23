@@ -1,22 +1,40 @@
 import React from 'react';
 
+import SearchField from './SearchField';
+
 class VacancyFilter extends React.Component {
 	constructor(props) {
 		super(props);
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSuggestClicked = this.handleSuggestClicked.bind(this);
 	}
 
-  handleInputChange(event) {
+  handleInputChange(value) {
   	const oldFilter = this.props.vacancies.filter;
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
 
     let newFilter = {};
-    newFilter[name] = value;
+    newFilter.text = value;
 
 		this.props.fetchVacancies(Object.assign({}, oldFilter, newFilter));
+    if(value.length > 1) {
+			this.props.fetchSuggestsVacancies(value);
+    }
+  }
+
+  handleSuggestClicked(value) {
+  	this.handleInputChange(value);
+  }
+
+  createSearchField() {
+  	return (
+  		<SearchField 
+  			bindValue={ this.props.vacancies.filter.text } 
+  			valueChanged={ this.handleInputChange } 
+  			suggestClicked={ this.handleSuggestClicked }
+  			bindSuggests={ this.props.suggests.vacancy }
+  			/>
+		)
   }
 
 	render() {
@@ -24,16 +42,7 @@ class VacancyFilter extends React.Component {
 			<div>
 				<div className="filter">
 					<div className="filter__field">
-						<label className="filter__label">
-							Search query
-						</label>
-						<input 
-							type="text" 
-							name="text"
-							className="filter__input" 
-							value={this.props.vacancies.filter.text}
-							onChange={this.handleInputChange}
-							/>
+						{this.createSearchField()}
 					</div>
 				</div>
 			</div>

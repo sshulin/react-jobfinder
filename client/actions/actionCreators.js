@@ -12,3 +12,17 @@ export function fetchVacanciesSuccess(items, meta) {
 		meta
 	}
 }
+
+export function fetchSuggestsVacancies(text) {
+	return {
+		type: 'FETCH_SUGGESTS_VACANCIES',
+		text
+	}
+}
+
+export function fetchSuggestVacanciesSuccess(items) {
+	return {
+		type: 'FETCH_SUGGESTS_VACANCIES_SUCCESS',
+		items
+	}
+}

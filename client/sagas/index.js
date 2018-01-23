@@ -23,7 +23,26 @@ function* subscribeForVacancies() {
 		fetchVacancies
 		)
 }
+
+function* fetchSuggestsVacancies(action) {
+  const { response, error } = yield call(api.getSuggestsVacancies, {
+  	text: action.text
+  });
+  const items = response.items;
+  yield put({type: "FETCH_SUGGESTS_VACANCIES_SUCCESS", items});
+
+}
+
+function* subscribeForSuggestsVacancies() {
+	yield* takeEvery(
+		'FETCH_SUGGESTS_VACANCIES',
+		fetchSuggestsVacancies
+		)
+}
  
 export default function* rootSaga() {
-	yield fork(subscribeForVacancies)
+	yield [
+		fork(subscribeForVacancies),
+		fork(subscribeForSuggestsVacancies)
+	]
 };
