@@ -1,4 +1,10 @@
 .header {
 	position: relative;
 	z-index: 2;
+	&__title {
+		text-align: center;
+		a, & {
+			text-decoration: none;
+		}
+	}
 }

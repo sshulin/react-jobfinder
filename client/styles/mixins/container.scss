@@ -1,6 +1,7 @@
 // Center-align a block level element
 
 @mixin container() {
+	box-sizing: border-box;
   @include center-block();
   @include media-breakpoint-up(lg){
   	width: $container-lg;
@@ -10,8 +11,12 @@
   }
   @include media-breakpoint-only(sm){
   	width: $container-sm;
+  	padding-left: 30px;
+  	padding-right: 30px;
   }
   @include media-breakpoint-down(xs){
+  	padding-left: 30px;
+  	padding-right: 30px;
   	width: 100%;
   }
 }

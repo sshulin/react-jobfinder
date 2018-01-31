@@ -13,6 +13,20 @@ export function fetchVacanciesSuccess(items, meta) {
 	}
 }
 
+export function fetchVacancy(id) {
+	return {
+		type: 'FETCH_VACANCY',
+		id
+	}
+}
+
+export function fetchVacancySuccess(vacancy) {
+	return {
+		type: 'FETCH_VACANCY_SUCCESS',
+		vacancy
+	}
+}
+
 export function fetchSuggestsVacancies(text) {
 	return {
 		type: 'FETCH_SUGGESTS_VACANCIES',

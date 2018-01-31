@@ -7,6 +7,7 @@ import Main from './Main';
 function mapStateToProps(state) {
 	return {
 		vacancies: state.vacancies,
+		vacancy: state.vacancy,
 		suggests: state.suggests
 	}
 }

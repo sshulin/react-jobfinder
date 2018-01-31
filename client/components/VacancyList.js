@@ -10,7 +10,7 @@ class VacancyList extends React.Component {
 	render() {
 		return (
 			<div>
-				<div className="vacancies-list">
+				<div className="vacancy-list">
 					{ this.props.vacancies.items.map((vacancy, i) => 
 						<VacancyItem {...this.props} key={i} i={i} vacancy={vacancy} />
 					)}

@@ -9,10 +9,14 @@ class Main extends React.Component {
 	render() {
 		return (
 			<div className="container">
-				<h1>
-					<Link to="/" title="Go home">{'React jobfinder'}</Link>
-				</h1>
-				{React.cloneElement(this.props.children, this.props)}
+				<div className="header">
+					<h1 className="header__title">
+						<Link to="/" title="Go home">{'React jobfinder'}</Link>
+					</h1>
+				</div>
+				<div className="content">
+					{React.cloneElement(this.props.children, this.props)}
+				</div>
 			</div>
 		)
 	}

@@ -19,6 +19,11 @@ const defaultState = {
 			text: ''
 		}
 	},
+	vacancy: {
+		current: {
+			loading: true
+		}
+	},
 	suggests: {
 		vacancy: [],
 	}

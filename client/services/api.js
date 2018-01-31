@@ -28,3 +28,4 @@ function callApi(url, params) {
 
 export const getVacanciesList = params => callApi('vacancies/', params);
 export const getSuggestsVacancies = params => callApi('suggests/vacancy_search_keyword', params);
+export const getVacancyDetails = params => callApi('vacancies/' + params.id);
