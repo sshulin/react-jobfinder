@@ -4,9 +4,7 @@ import { take, call, put, fork, all } from 'redux-saga/effects';
 import { api } from '../services';
  
 function* fetchVacancies(action) {
-  const { response, error } = yield call(api.getVacanciesList, {
-  	...action.filter
-  });
+  const { response, error } = yield call(api.getVacanciesList, Object.assign({}, action.filter));
   const items = response.items;
   const meta = {
   	found: response.found,

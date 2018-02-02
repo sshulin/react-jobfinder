@@ -8,6 +8,25 @@ class VacancyDetails extends React.Component {
 		this.props.fetchVacancy(this.props.params.vacancyId);
 	}
 
+	renderSubtitle(vacancy) {
+		let employer = '';
+		if(vacancy.employer && vacancy.employer.name) {
+			employer = vacancy.employer.name;
+			employer += ', ';
+		}
+		let area = '';
+		if(vacancy.area && vacancy.area.name) {
+			area = vacancy.area.name;
+		}
+
+		return (
+			<div className="vacancy-details__employer">
+				{ employer }
+				<i className="fa fa-map-marker"></i> { area }
+			</div>
+		)
+	}
+
 	renderSalary(salary) {
 		let returnSalary = '';
 		if(salary) {
@@ -53,9 +72,7 @@ class VacancyDetails extends React.Component {
 						<div className="vacancy-details__name">
 							{ vacancy.name }
 						</div>
-						<div className="vacancy-details__employer">
-							{ vacancy.employer.name }, <i className="fa fa-map-marker"></i> { vacancy.area.name }
-						</div>
+						{ this.renderSubtitle(vacancy) }
 					</div>
 					<div className="vacancy-details__salary">
 						<div className="salary">
