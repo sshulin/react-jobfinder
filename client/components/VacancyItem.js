@@ -39,7 +39,7 @@ class VacancyItem extends React.Component {
 				<div className="vacancy-item__wrapper">
 					<div className="vacancy-item__header">
 						<div className="vacancy-item__name">
-							<Link to={`/vacancy/${vacancy.id}`}>
+							<Link to={`${constpath}vacancy/${vacancy.id}`}>
 								{ vacancy.name }
 							</Link>
 						</div>

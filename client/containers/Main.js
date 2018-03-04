@@ -11,7 +11,7 @@ class Main extends React.Component {
 			<div className="container">
 				<div className="header">
 					<h1 className="header__title">
-						<Link to="/" title="Go home">{'React jobfinder'}</Link>
+						<Link to={`${constpath}`} title="Go home">{'React jobfinder'}</Link>
 					</h1>
 				</div>
 				<div className="content">

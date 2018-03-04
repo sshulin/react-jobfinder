@@ -15,12 +15,14 @@ import Root from './containers/Root';
 import Dashboard from './components/Dashboard';
 import VacancyDetails from './components/VacancyDetails';
 
+window.constpath = window.location.pathname;
+
 const router = (
 	<Provider store={store}>
 		<Router history={history}>
-			<Route path="/" component={Root}>
+			<Route path={constpath} component={Root}>
 				<IndexRoute component={Dashboard}></IndexRoute>
-				<Route path="/vacancy/:vacancyId" component={VacancyDetails}></Route>
+				<Route path={constpath + 'vacancy/:vacancyId'} component={VacancyDetails}></Route>
 			</Route>
 		</Router>
 	</Provider>
